@@ -1,6 +1,6 @@
 # Hermes guide
 
-This repository contains a static Astro version of the ETHOS Lab website. Keep changes small, use pull requests, and do not publish directly from a feature branch.
+This repository contains a static Astro version of the ETHOS Lab website. Hermes uses the lab's GitHub App and GitHub MCP tools to work with repository files. Keep changes small, use pull requests, and never commit directly to `main`.
 
 ## Project map
 
@@ -15,8 +15,8 @@ This repository contains a static Astro version of the ETHOS Lab website. Keep c
 1. Read the current component and content data before editing.
 2. For text or people updates, change the matching file in `src/content/` rather than copying markup into a page.
 3. For a new repeated design element, add or extend a component in `src/components/`. Keep a short comment and a usage example with reusable component code.
-4. Run `npm install` once, then `npm run dev` to preview changes locally. Run `npm run build` before opening a pull request.
-5. Create a descriptive branch, commit only the requested change, and open a pull request to `main`. Include a short summary and a screenshot for visual changes. Do not merge or change branch protection.
+4. Create a descriptive non-default branch, commit only the requested change, and open a pull request to `main`. Include a short summary and a screenshot for visual changes. Do not merge or change branch protection.
+5. Check that the **Check website build / build** workflow passes on the pull request. If a local checkout is available inside `/srv/hermes-workspace`, run `npm ci` and `npm run build` there. Do not ask lab members to manage tokens or clone repositories for the GitHub MCP workflow.
 
 ## Example
 
