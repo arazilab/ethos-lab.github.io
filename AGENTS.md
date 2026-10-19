@@ -20,7 +20,7 @@ This repository contains a static Astro version of the ETHOS Lab website. Keep c
 
 ## Example
 
-To add a research area, add an object to `src/content/research.js` with `title`, `description`, and optional `image` fields. `ResearchGrid.astro` renders the list automatically.
+To add a research area, add an object to `src/content/research.js` with `title` and `description` fields. `ResearchGrid.astro` renders the list automatically.
 
 ## Content and assets
 
