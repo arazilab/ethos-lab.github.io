@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import ResearchGrid from '../components/ResearchGrid.astro';
+import { researchAreas } from '../content/research.js';
+---
+<SiteLayout title="Research">
+  <div class="page-shell">
+    <SectionIntro eyebrow="Our work" title="Research areas" intro="We bring human-centered methods to complex questions about technology, safety, wellbeing, and care." />
+    <ResearchGrid areas={researchAreas} />
+  </div>
+</SiteLayout>

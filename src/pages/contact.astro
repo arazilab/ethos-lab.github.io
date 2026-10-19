@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import { site } from '../content/site.js';
+---
+<SiteLayout title="Contact">
+  <div class="page-shell">
+    <SectionIntro eyebrow="Connect with us" title="Contact ETHOS Lab" intro="We welcome conversations with students, researchers, and community partners." />
+    <div class="contact-grid">
+      <section class="contact-block"><h2>Visit us</h2>{site.address.map((line) => <p>{line}</p>)}<a href="https://maps.google.com/?q=3675+Market+St,+Philadelphia,+PA+19104">View location</a></section>
+      <section class="contact-block"><h2>Get in touch</h2><p>For questions about the lab, research, or collaboration, visit the lab's contact page.</p><a href={site.contactUrl}>ETHOS Lab contact page</a><h2 style="margin-top: 2rem">Social media</h2><p><a href={site.linkedinUrl}>LinkedIn</a></p></section>
+    </div>
+  </div>
+</SiteLayout>

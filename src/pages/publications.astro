@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import PublicationsByYear from '../components/PublicationsByYear.astro';
+import { publications } from '../content/publications.js';
+---
+<SiteLayout title="Publications">
+  <div class="page-shell">
+    <SectionIntro eyebrow="Selected work" title="Publications" intro="Research from ETHOS Lab on human-centered technology, online safety, health, and human-AI interaction." />
+    <PublicationsByYear years={publications} />
+  </div>
+</SiteLayout>

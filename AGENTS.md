@@ -1,0 +1,38 @@
+# Hermes guide
+
+This repository contains a static Astro version of the ETHOS Lab website. Keep changes small, use pull requests, and do not publish directly from a feature branch.
+
+## Project map
+
+- `src/content/site.js` holds shared lab text and navigation labels.
+- `src/content/research.js`, `team.js`, and `publications.js` hold page content.
+- `src/components/` contains reusable page sections and elements.
+- `src/layouts/SiteLayout.astro` contains the shared header, navigation, footer, and styles.
+- `src/pages/` contains one Astro file per public page.
+
+## Make a change
+
+1. Read the current component and content data before editing.
+2. For text or people updates, change the matching file in `src/content/` rather than copying markup into a page.
+3. For a new repeated design element, add or extend a component in `src/components/`. Keep a short comment and a usage example with reusable component code.
+4. Run `npm install` once, then `npm run dev` to preview changes locally. Run `npm run build` before opening a pull request.
+5. Create a descriptive branch, commit only the requested change, and open a pull request to `main`. Include a short summary and a screenshot for visual changes. Do not merge or change branch protection.
+
+## Example
+
+To add a research area, add an object to `src/content/research.js` with `title`, `description`, and optional `image` fields. `ResearchGrid.astro` renders the list automatically.
+
+## Content and assets
+
+- Preserve source meaning and names. Check current source details before changing time-sensitive people, publications, or links.
+- Prefer locally stored, licensed assets. Do not copy private or restricted material.
+- Keep images accessible with useful alternative text. Mark decorative images with empty alternative text.
+- Use root-relative Astro asset helpers or normal relative links so assets work under `/ethos-lab.github.io/`.
+- Keep keyboard focus visible, use semantic headings, and respect reduced-motion preferences.
+
+## Pull request checklist
+
+- The requested change is limited to its intended files.
+- `npm run build` succeeds.
+- Page links and local assets work under the GitHub Pages project path.
+- The pull request explains what changed and how it was checked.

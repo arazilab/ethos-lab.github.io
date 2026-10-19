@@ -1,0 +1,14 @@
+---
+const { areas } = Astro.props;
+---
+<div class="research-grid">
+  {areas.map((area) => (
+    <article class="research-item">
+      <span class="research-mark" aria-hidden="true"></span>
+      <h2>{area.title}</h2>
+      <p>{area.description}</p>
+    </article>
+  ))}
+</div>
+
+<!-- Add an item to src/content/research.js to create another research area. -->

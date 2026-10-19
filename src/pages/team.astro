@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import SectionIntro from '../components/SectionIntro.astro';
+import TeamGrid from '../components/TeamGrid.astro';
+import { team } from '../content/team.js';
+---
+<SiteLayout title="Team">
+  <div class="page-shell">
+    <SectionIntro eyebrow="People behind the research" title="Meet the team" intro="We are researchers and students working together across human-computer interaction, AI, online safety, and health informatics." />
+    <TeamGrid people={team} />
+  </div>
+</SiteLayout>

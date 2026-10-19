@@ -1,0 +1,10 @@
+---
+const { eyebrow, title, intro } = Astro.props;
+---
+<header class="section-intro">
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <h1>{title}</h1>
+  {intro && <p class="intro-copy">{intro}</p>}
+</header>
+
+<!-- Example: <SectionIntro eyebrow="Our work" title="Research areas" intro="What we study and why." /> -->

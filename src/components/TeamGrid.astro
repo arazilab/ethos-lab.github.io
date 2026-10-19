@@ -1,0 +1,18 @@
+---
+const { people } = Astro.props;
+---
+<div class="team-grid">
+  {people.map((person) => (
+    <article class="person">
+      <div class="person-monogram" aria-hidden="true">{person.name.split(' ').map((part) => part[0]).slice(0, 2).join('')}</div>
+      <div>
+        <h2>{person.url ? <a href={person.url}>{person.name}</a> : person.name}</h2>
+        <p class="person-role">{person.role}</p>
+        {person.description && <p>{person.description}</p>}
+        <p class="interest-list">{person.interests.join(' · ')}</p>
+      </div>
+    </article>
+  ))}
+</div>
+
+<!-- Example: <TeamGrid people={team.filter((person) => person.role === 'PhD Student')} /> -->

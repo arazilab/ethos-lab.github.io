@@ -1,0 +1,20 @@
+---
+const { years } = Astro.props;
+---
+<div class="publication-years">
+  {years.map((group) => (
+    <section class="publication-year" aria-labelledby={`year-${group.year}`}>
+      <h2 id={`year-${group.year}`}>{group.year}</h2>
+      <ol>
+        {group.items.map((item) => (
+          <li>
+            <p>{item.authors}. {item.title}. <em>{item.venue}</em>.</p>
+            {item.url && <a href={item.url}>View publication</a>}
+          </li>
+        ))}
+      </ol>
+    </section>
+  ))}
+</div>
+
+<!-- Add a year group or publication in src/content/publications.js. -->
