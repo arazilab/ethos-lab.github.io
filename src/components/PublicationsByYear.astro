@@ -1,4 +1,5 @@
 ---
+import { publicationDownloads } from '../content/publicationDownloads.js';
 const { years } = Astro.props;
 ---
 <div class="publication-years">
@@ -6,15 +7,25 @@ const { years } = Astro.props;
     <section class="publication-year" aria-labelledby={`year-${group.year}`}>
       <h2 id={`year-${group.year}`}>{group.year}</h2>
       <ol>
-        {group.items.map((item) => (
-          <li>
+        {group.items.map((item) => {
+          const downloadUrl = publicationDownloads[item.url ?? item.title];
+          const isDoi = item.url?.startsWith('https://doi.org/');
+          return <li>
             <p>{item.authors}. {item.title}. <em>{item.venue}</em>.</p>
-            {item.url && <a href={item.url}>View publication</a>}
-          </li>
-        ))}
+            <div class="publication-links">
+              {item.url && <a href={item.url}>{isDoi ? `DOI: ${item.url}` : 'Publication link'}</a>}
+              {downloadUrl && <a href={downloadUrl}>Download</a>}
+            </div>
+          </li>;
+        })}
       </ol>
     </section>
   ))}
 </div>
 
-<!-- Add a year group or publication in src/content/publications.js. -->
+<style>
+  .publication-links { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
+  .publication-links a { overflow-wrap: anywhere; }
+</style>
+
+<!-- Add publication details in src/content/publications.js and access links in publicationDownloads.js. -->
