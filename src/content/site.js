@@ -5,6 +5,7 @@ export const site = {
   focus: 'Our work connects Human-Computer Interaction, Human-AI Interaction, Conversational User Interfaces, and Health Informatics.',
   address: ['Drexel University College of Computing & Informatics', '3675 Market St, 10th Floor', 'Philadelphia, PA 19104'],
   contactUrl: 'https://www.ethos-lab.org/contact-us',
+  contactFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdX0txGyGT7kobvZsBramBZgxr2v6wb0Y8TPjrGDS2g3rc4Ig/viewform?usp=sharing&ouid=112666522923723055581',
   linkedinUrl: 'https://www.linkedin.com/company/ethical-technology-helping-our-society-ethos-lab',
   navigation: [
     { label: 'Home', href: '/' },
