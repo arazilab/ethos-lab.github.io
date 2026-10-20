@@ -1,0 +1,42 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import SectionIntro from '../../components/SectionIntro.astro';
+import { researchAreas } from '../../content/research.js';
+
+export function getStaticPaths() {
+  return researchAreas.map((area) => ({ params: { slug: area.slug }, props: { area } }));
+}
+
+const { area } = Astro.props;
+const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+---
+<SiteLayout title={area.title} description={area.description}>
+  <div class="page-shell">
+    <a class="back-link" href={`${base}research/`}>← All research areas</a>
+    <SectionIntro eyebrow="Research" title={area.title} intro={area.description} />
+    <div class="research-detail">
+      {area.sections.map((section) => (
+        <section>
+          <h2>{section.title}</h2>
+          {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        </section>
+      ))}
+      <section>
+        <h2>Related publications</h2>
+        <ul>
+          {area.relatedPublications.map((paper) => <li><a href={paper.url}>{paper.title}</a></li>)}
+        </ul>
+        <p><a href={`${base}publications/`}>Browse all publications</a></p>
+      </section>
+    </div>
+  </div>
+</SiteLayout>
+
+<style>
+  .back-link { display: inline-block; margin-bottom: 2rem; }
+  .research-detail { max-width: 780px; }
+  .research-detail section { border-top: 1px solid var(--line); padding: 1.5rem 0 2rem; }
+  .research-detail h2 { margin: 0 0 1rem; font-size: 1.55rem; }
+  .research-detail p { color: var(--muted); margin: .65rem 0; }
+  .research-detail li { margin: .8rem 0; line-height: 1.6; }
+</style>
