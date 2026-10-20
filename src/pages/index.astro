@@ -27,3 +27,62 @@ const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL :
     <p class="intro-copy">We mentor junior researchers and build a fun, collaborative culture in our lab and across the Drexel community.</p>
   </section>
 </SiteLayout>
+
+<style>
+  /* Gentle, CSS-only motion keeps the hero decorative and lightweight. */
+  .hero-art::before {
+    content: '';
+    position: absolute;
+    width: min(32vw, 400px);
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(8, 125, 120, .14), transparent 70%);
+    animation: hero-breathe 7s ease-in-out infinite;
+  }
+
+  .orbit {
+    animation: hero-orbit 28s linear infinite;
+  }
+
+  .orbit:nth-child(2) {
+    animation-direction: reverse;
+    animation-duration: 20s;
+  }
+
+  .orbit::before, .orbit::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #087d78;
+    box-shadow: 0 0 0 5px #eef7f4, 0 0 0 7px rgba(8, 125, 120, .16);
+  }
+
+  .orbit::before { top: -6px; left: 50%; }
+  .orbit::after { bottom: 12%; right: 13%; background: #dc774b; }
+  .orbit:nth-child(2)::before { background: #688a46; }
+  .orbit:nth-child(2)::after { background: #087d78; }
+
+  .orbit-core {
+    position: relative;
+    animation: hero-float 6s ease-in-out infinite;
+  }
+
+  @keyframes hero-orbit { to { transform: rotate(360deg); } }
+  @keyframes hero-breathe {
+    50% { transform: scale(1.13); opacity: .6; }
+  }
+  @keyframes hero-float {
+    50% { transform: translateY(-8px); box-shadow: 16px 24px 0 #b8dfd5; }
+  }
+
+  @media (max-width: 760px) {
+    .hero-art::before { width: 250px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-art::before, .orbit, .orbit-core { animation: none; }
+  }
+</style>
