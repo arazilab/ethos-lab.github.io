@@ -7,17 +7,15 @@ const { years } = Astro.props;
     <section class="publication-year" aria-labelledby={`year-${group.year}`}>
       <h2 id={`year-${group.year}`}>{group.year}</h2>
       <ol>
-        {group.items.map((item) => {
-          const downloadUrl = publicationDownloads[item.url ?? item.title];
-          const isDoi = item.url?.startsWith('https://doi.org/');
-          return <li>
+        {group.items.map((item) => (
+          <li>
             <p>{item.authors}. {item.title}. <em>{item.venue}</em>.</p>
             <div class="publication-links">
-              {item.url && <a href={item.url}>{isDoi ? `DOI: ${item.url}` : 'Publication link'}</a>}
-              {downloadUrl && <a href={downloadUrl}>Download</a>}
+              {item.url && <a href={item.url}>{item.url.startsWith('https://doi.org/') ? `DOI: ${item.url}` : 'Publication link'}</a>}
+              {publicationDownloads[item.url ?? item.title] && <a href={publicationDownloads[item.url ?? item.title]}>Download</a>}
             </div>
-          </li>;
-        })}
+          </li>
+        ))}
       </ol>
     </section>
   ))}
